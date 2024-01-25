@@ -22,7 +22,12 @@
 	WHERE o.order_id is null;
 	
 -- 5. Select order ids that contains product from category 'Beverages' ordered '1996-08-14'.
-
+	SELECT o.order_id, c.category_name, o.order_date FROM orders as o
+	INNER JOIN order_details as od ON o.order_id = od.order_id
+	INNER JOIN products AS p ON od.product_id = p.product_id
+	INNER JOIN categories AS c ON p.category_id = c.category_id
+	WHERE c.category_name = 'Beverages' AND o.order_date = '1996-08-14';
+	
 -- 6. Select product names and availability of products supplied by 'Lyngbysild' from category 'Seafood'
 
 -- 7. Select last names of employees assigned to 'Northern' region.
