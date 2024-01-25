@@ -12,6 +12,9 @@
 	WHERE e.last_name LIKE 'D%' AND o.ship_country = 'Germany';
 	
 -- 3. Select all orders shipped by United Package for orders sooner than '1996-08-12'
+	SELECT o.order_id, o.customer_id, s.company_name, o.order_date FROM orders as o
+	INNER JOIN shippers as s on o.ship_via = s.shipper_id
+	WHERE s.company_name = 'United Package' and o.order_date < '1996-08-12';
     
 -- 4. Select shippers company name that doesn't have any orders assigned.
 
