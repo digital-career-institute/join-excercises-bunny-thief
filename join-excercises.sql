@@ -29,6 +29,11 @@
 	WHERE c.category_name = 'Beverages' AND o.order_date = '1996-08-14';
 	
 -- 6. Select product names and availability of products supplied by 'Lyngbysild' from category 'Seafood'
+	SELECT p.product_name, p.units_in_stock FROM products as p
+	INNER JOIN categories AS c ON p.category_id = c.category_id
+	INNER JOIN suppliers AS s ON p.supplier_id = s.supplier_id
+	WHERE c.category_name = 'Seafood' AND s.company_name = 'Lyngbysild';
+	
 
 -- 7. Select last names of employees assigned to 'Northern' region.
 
