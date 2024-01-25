@@ -17,7 +17,10 @@
 	WHERE s.company_name = 'United Package' and o.order_date < '1996-08-12';
     
 -- 4. Select shippers company name that doesn't have any orders assigned.
-
+	SELECT s.company_name FROM shippers as s
+	LEFT JOIN orders as o on s.shipper_id = o.ship_via
+	WHERE o.order_id is null;
+	
 -- 5. Select order ids that contains product from category 'Beverages' ordered '1996-08-14'.
 
 -- 6. Select product names and availability of products supplied by 'Lyngbysild' from category 'Seafood'
