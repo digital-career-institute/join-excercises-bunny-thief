@@ -7,7 +7,10 @@
 
 -- 2. Select order id, order date, employee first and last name for employee
 -- whose last name starts with 'D' and for order that was shipped to Germany.
-
+	SELECT o.order_id, o.order_date, e.first_name, e.last_name FROM orders as o
+	INNER JOIN employees as e on o.employee_id = e.employee_id
+	WHERE e.last_name LIKE 'D%' AND o.ship_country = 'Germany';
+	
 -- 3. Select all orders shipped by United Package for orders sooner than '1996-08-12'
     
 -- 4. Select shippers company name that doesn't have any orders assigned.
