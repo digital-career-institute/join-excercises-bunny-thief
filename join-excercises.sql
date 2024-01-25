@@ -49,3 +49,6 @@
 	WHERE o.shipped_date is null;
 
 -- 10. Calculate the price for each product with its name in each order after discount is applied.
+	SELECT p.product_name, (p.unit_price - od.discount) FROM products AS p
+	INNER JOIN order_details AS od ON p.product_id = od.product_id
+	WHERE od.discount > 0;
