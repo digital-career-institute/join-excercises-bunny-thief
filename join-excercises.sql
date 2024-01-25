@@ -44,5 +44,8 @@
 -- 8. Select employee id and his boss last name for those who have orders with date later than '1996-07-18'. if an employee doesn't have a boss don't include him.
 
 -- 9. List the employees in the warehouse with orders that are not shipped yet.
+	SELECT DISTINCT e.last_name FROM employees AS e
+	RIGHT OUTER JOIN orders as o ON e.employee_id = o.employee_id
+	WHERE o.shipped_date is null;
 
 -- 10. Calculate the price for each product with its name in each order after discount is applied.
