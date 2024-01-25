@@ -34,9 +34,13 @@
 	INNER JOIN suppliers AS s ON p.supplier_id = s.supplier_id
 	WHERE c.category_name = 'Seafood' AND s.company_name = 'Lyngbysild';
 	
-
 -- 7. Select last names of employees assigned to 'Northern' region.
-
+	SELECT DISTINCT e.last_name FROM employees AS e
+	JOIN employee_territories AS et ON e.employee_id = et.employee_id
+	JOIN territories as t ON et.territory_id = t.territory_id
+	JOIN region AS r ON t.region_id = r.region_id
+	WHERE r.region_description = 'Northern';
+	
 -- 8. Select employee id and his boss last name for those who have orders with date later than '1996-07-18'. if an employee doesn't have a boss don't include him.
 
 -- 9. List the employees in the warehouse with orders that are not shipped yet.
